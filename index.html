@@ -6,6 +6,48 @@
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #content {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 80%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <h1>Login</h1>
@@ -34,7 +76,6 @@
     const logoutBtn = document.getElementById('logout');
     const contentDiv = document.getElementById('content');
 
-    // Login
     loginBtn.onclick = () => {
       const email = prompt("Masukkan email:");
       const password = prompt("Masukkan password:");
@@ -47,14 +88,12 @@
         });
     };
 
-    // Logout
     logoutBtn.onclick = () => {
       auth.signOut().then(() => {
         alert("Logout berhasil");
       });
     };
 
-    // Cek status login
     auth.onAuthStateChanged(user => {
       if (user) {
         document.querySelector('h1').textContent = 'Selamat Datang!';
