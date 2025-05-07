@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Login Page</title>
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -58,20 +55,22 @@
     <p>Ini hanya bisa dilihat pengguna yang login.</p>
   </div>
 
-  <script>
-    // Konfigurasi Firebase
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
     const firebaseConfig = {
       apiKey: "AIzaSyD_DEVbWCq3_mRXCwT5gbVhNg2piKXRcyc",
       authDomain: "apps-88738.firebaseapp.com",
       projectId: "apps-88738",
-      storageBucket: "apps-88738.firebasestorage.app",
+      storageBucket: "apps-88738.appspot.com",
       messagingSenderId: "355376141257",
       appId: "1:355376141257:web:a55debfb17d97204220e18",
       measurementId: "G-HRQTL65V7J"
     };
-    // Inisialisasi Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
 
     const loginBtn = document.getElementById('login');
     const logoutBtn = document.getElementById('logout');
@@ -80,7 +79,7 @@
     loginBtn.onclick = () => {
       const email = prompt("Masukkan email:");
       const password = prompt("Masukkan password:");
-      auth.signInWithEmailAndPassword(email, password)
+      signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
           alert("Berhasil login!");
         })
@@ -90,12 +89,12 @@
     };
 
     logoutBtn.onclick = () => {
-      auth.signOut().then(() => {
+      signOut(auth).then(() => {
         alert("Logout berhasil");
       });
     };
 
-    auth.onAuthStateChanged(user => {
+    onAuthStateChanged(auth, user => {
       if (user) {
         document.querySelector('h1').textContent = 'Selamat Datang!';
         loginBtn.style.display = 'none';
@@ -109,5 +108,6 @@
       }
     });
   </script>
+
 </body>
 </html>
