@@ -53,13 +53,6 @@
     button:hover {
       background-color: #0056b3;
     }
-    #logout {
-      background-color: #dc3545;
-      margin-top: 20px;
-    }
-    #logout:hover {
-      background-color: #a71d2a;
-    }
     #content {
       margin-top: 20px;
       display: none;
@@ -74,17 +67,11 @@
     <input type="email" id="email" placeholder="Email" required />
     <input type="password" id="password" placeholder="Password" required />
     <button id="login">Login</button>
-    <button id="logout" style="display: none;">Logout</button>
-
-    <div id="content">
-      <h3>Konten Rahasia</h3>
-      <p>Hanya pengguna login yang dapat melihat ini.</p>
-    </div>
   </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyD_DEVbWCq3_mRXCwT5gbVhNg2piKXRcyc",
@@ -102,7 +89,6 @@
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const loginBtn = document.getElementById('login');
-    const logoutBtn = document.getElementById('logout');
     const contentDiv = document.getElementById('content');
     const formTitle = document.getElementById('formTitle');
 
@@ -119,33 +105,21 @@
         .then(() => {
           emailInput.value = '';
           passwordInput.value = '';
+          // Alihkan ke halaman external.html setelah login berhasil
+          window.location.href = "external.html";
         })
         .catch(error => {
           alert("Login gagal: " + error.message);
         });
     };
 
-    logoutBtn.onclick = () => {
-      signOut(auth).then(() => {
-        alert("Logout berhasil");
-      });
-    };
-
     onAuthStateChanged(auth, user => {
       if (user) {
         formTitle.textContent = "Selamat Datang!";
-        loginBtn.style.display = 'none';
-        emailInput.style.display = 'none';
-        passwordInput.style.display = 'none';
-        logoutBtn.style.display = 'block';
-        contentDiv.style.display = 'block';
+        contentDiv.style.display = 'block'; // Menampilkan konten
       } else {
         formTitle.textContent = "Login";
-        loginBtn.style.display = 'block';
-        emailInput.style.display = 'block';
-        passwordInput.style.display = 'block';
-        logoutBtn.style.display = 'none';
-        contentDiv.style.display = 'none';
+        contentDiv.style.display = 'none'; // Menyembunyikan konten jika tidak ada user yang login
       }
     });
   </script>
