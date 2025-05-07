@@ -1,223 +1,210 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Web External - Warna Awal Tanpa Animasi Background</title>
-<!-- Menggunakan Google Material Icons -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-<!-- Menggunakan Google Fonts untuk tampilan lebih modern -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-<style>
-  /* Atur html dan body agar tinggi 100% dan gunakan flexbox untuk layout */
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4; /* warna lembut dari tema awal */
-    color: #333;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web External - Warna Awal Tanpa Animasi Background</title>
+  <!-- Menggunakan Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- Menggunakan Google Fonts untuk tampilan lebih modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Atur html dan body agar tinggi 100% dan gunakan flexbox untuk layout */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4; /* warna lembut dari tema awal */
+      color: #333;
+    }
 
-  /* Header tetap di atas */
-  header {
-    background-color: #2c3e50;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
+    /* Header tetap di atas */
+    header {
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
 
-  header h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #fff;
-    letter-spacing: 1px;
-  }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
 
-  /* Menu ikon */
-  .menu-icons {
-    display: flex;
-    gap: 20px;
-  }
+    /* Menu ikon */
+    .menu-icons {
+      display: flex;
+      gap: 20px;
+    }
 
-  .menu-icons a {
-    color: #fff;
-    font-size: 28px;
-    transition: all 0.3s ease;
-  }
+    .menu-icons a {
+      color: #fff;
+      font-size: 28px;
+      transition: all 0.3s ease;
+    }
 
-  .menu-icons a:hover {
-    color: #ffd700; /* warna kuning emas saat hover */
-    transform: scale(1.2);
-  }
+    .menu-icons a:hover {
+      color: #ffd700; /* warna kuning emas saat hover */
+      transform: scale(1.2);
+    }
 
-  /* Konten utama harus mengisi ruang yang tersisa */
-  main {
-    flex: 1; /* agar otomatis mengisi ruang yang tersedia */
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+    /* Konten utama harus mengisi ruang yang tersisa */
+    main {
+      flex: 1; /* agar otomatis mengisi ruang yang tersedia */
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-  /* Card */
-  .card {
-    background: #fff;
-    padding: 24px;
-    margin-bottom: 24px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-  }
+    /* Card */
+    .card {
+      background: #fff;
+      padding: 24px;
+      margin-bottom: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
 
-  .card:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    transform: translateY(-4px);
-  }
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
 
-  .card h2 {
-    margin-top: 0;
-    font-size: 22px;
-    color: #2c3e50;
-  }
+    .card h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #2c3e50;
+    }
 
-  /* Opsi menu */
-  .options-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
+    /* Opsi menu */
+    .options-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
 
-  .option {
-    flex: 1 1 150px;
-    max-width: 200px;
-    background: #e0f7fa; /* warna pastel lembut */
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: #1d3557;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-  }
+    .option {
+      flex: 1 1 150px;
+      max-width: 200px;
+      background: #e0f7fa; /* warna pastel lembut */
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      color: #1d3557;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
 
-  .option:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    transform: translateY(-4px);
-  }
+    .option:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
 
-  .option img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-  }
+    .option img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
 
-  .option:hover img {
-    transform: scale(1.1);
-  }
+    .option:hover img {
+      transform: scale(1.1);
+    }
 
-  /* Footer tetap di bawah */
-  footer {
-    background-color: #2c3e50;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-  }
-</style>  
+    /* Footer tetap di bawah */
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Menu External</h1>
-  <div class="menu-icons">
-    <a href="http://89.116.227.43" title="Beranda"><span class="material-icons">home</span></a>
-    <a href="#" title="Profil"><span class="material-icons">person</span></a>
-    <a href="#" title="Pengaturan"><span class="material-icons">settings</span></a>
-  </div>
-</header>
+  <header>
+    <h1>Menu External</h1>
+    <div class="menu-icons">
+      <a href="http://89.116.227.43" title="Beranda"><span class="material-icons">home</span></a>
+      <a href="#" title="Profil"><span class="material-icons">person</span></a>
+      <a href="index.html" title="logout"><span class="material-icons">logout</span></a>
+    </div>
+  </header>
 
-<!-- Main content, flex: 1 agar otomatis mengikuti tinggi sisa -->
-<main>
-  <div class="card">
-    <h2>Selamat Datang di Tema Awal</h2>
-    <p>Ini adalah versi tanpa animasi di background, tetap dengan warna yang nyaman dan kalem.</p>
-  </div>
+  <!-- Main content, flex: 1 agar otomatis mengikuti tinggi sisa -->
+  <main>
+    <div class="card">
+      <h2>Selamat Datang di Tema Awal</h2>
+      <p>Ini adalah versi tanpa animasi di background, tetap dengan warna yang nyaman dan kalem.</p>
+    </div>
 
-  <!-- Opsi menu -->
-  <div class="options-container">
-    <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>Mulia Graha</div>
-    </a>
-    <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>Dalam Perjalanan</div>
-    </a>
-    <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-    <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
+    <!-- Opsi menu -->
+    <div class="options-container">
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>Mulia Graha</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>Dalam Perjalanan</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+      <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
+        <div>SJ Pengganti</div>
+      </a>
+    </div>
+  </main>
 
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a>
-        <a href="https://www.w3schools.com/html/html_attributes.asp" class="option" >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="Logo HTML5" />
-      <div>SJ Pengganti</div>
-    </a> 
-  </div>
-</main>
-
-<!-- Footer selalu di paling bawah -->
-<footer>
-  &copy; 2024 Perusahaan Anda. Semua hak dilindungi.
-</footer>
+  <!-- Footer selalu di paling bawah -->
+  <footer>
+    &copy; 2024 Perusahaan Anda. Semua hak dilindungi.
+  </footer>
 
 </body>
 </html>
