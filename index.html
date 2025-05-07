@@ -1,58 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login Page</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #f0f4f8;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
       margin: 0;
     }
-    h1 {
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
       color: #333;
     }
-    button {
-      padding: 10px 20px;
-      margin: 10px;
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
       background-color: #007bff;
       color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
       transition: background-color 0.3s;
     }
     button:hover {
       background-color: #0056b3;
     }
+    #logout {
+      background-color: #dc3545;
+      margin-top: 20px;
+    }
+    #logout:hover {
+      background-color: #a71d2a;
+    }
     #content {
       margin-top: 20px;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 80%;
-    }
-    h2 {
-      margin-top: 0;
-      color: #333;
+      display: none;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Login</h1>
-  <button id="login">Login with Email</button>
-  <button id="logout" style="display:none;">Logout</button>
-  <div id="content" style="display:none;">
-    <h2>Konten Rahasia</h2>
-    <p>Ini hanya bisa dilihat pengguna yang login.</p>
+
+  <div class="container">
+    <h2 id="formTitle">Login</h2>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button id="login">Login</button>
+    <button id="logout" style="display: none;">Logout</button>
+
+    <div id="content">
+      <h3>Konten Rahasia</h3>
+      <p>Hanya pengguna login yang dapat melihat ini.</p>
+    </div>
   </div>
 
   <script type="module">
@@ -72,19 +99,29 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth();
 
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
     const loginBtn = document.getElementById('login');
     const logoutBtn = document.getElementById('logout');
     const contentDiv = document.getElementById('content');
+    const formTitle = document.getElementById('formTitle');
 
     loginBtn.onclick = () => {
-      const email = prompt("Masukkan email:");
-      const password = prompt("Masukkan password:");
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        alert("Email dan password harus diisi.");
+        return;
+      }
+
       signInWithEmailAndPassword(auth, email, password)
-        .then(userCredential => {
-          alert("Berhasil login!");
+        .then(() => {
+          emailInput.value = '';
+          passwordInput.value = '';
         })
         .catch(error => {
-          alert("Gagal login: " + error.message);
+          alert("Login gagal: " + error.message);
         });
     };
 
@@ -96,13 +133,17 @@
 
     onAuthStateChanged(auth, user => {
       if (user) {
-        document.querySelector('h1').textContent = 'Selamat Datang!';
+        formTitle.textContent = "Selamat Datang!";
         loginBtn.style.display = 'none';
+        emailInput.style.display = 'none';
+        passwordInput.style.display = 'none';
         logoutBtn.style.display = 'block';
         contentDiv.style.display = 'block';
       } else {
-        document.querySelector('h1').textContent = 'Login';
+        formTitle.textContent = "Login";
         loginBtn.style.display = 'block';
+        emailInput.style.display = 'block';
+        passwordInput.style.display = 'block';
         logoutBtn.style.display = 'none';
         contentDiv.style.display = 'none';
       }
